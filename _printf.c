@@ -8,9 +8,9 @@
 int (*check_format(const char *format))(va_list)
 {
 int i = 0;
-print_t p[] = {		 
-{"c", print_c},		 
-{"s", print_s},	     
+print_t p[] = {
+{"c", print_c},
+{"s", print_s},
 {"i", print_i},
 {"d", print_d},
 {NULL, NULL}
@@ -36,7 +36,7 @@ if (format == NULL)
 return (-1);
 va_start(ap, format);
 while (format && format[i])
-{      
+{
 if (format[i] != '%')
 {
 _putchar(format[i]);
