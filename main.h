@@ -1,21 +1,33 @@
 #ifndef MAIN_H
+
 #define MAIN_H
+
+#include <limits.h>
+
+#include <unistd.h>
+
 #include <stdarg.h>
+
+#include <stdlib.h>
+
 #include <stdio.h>
 /**
-* struct print - structure for printing various types
-* @t: type to print
-* @f: function to print
+* struct convert - convert
+* @sym: char
+* @f: int
 */
-typedef struct print
+struct convert
 {
-char *t;
+char *sym;
 int (*f)(va_list);
-} print_t;
+};
+typedef struct convert convert_t;
 int _printf(const char *format, ...);
 int _putchar(char c);
-int print_c(va_list c);
-int print_s(va_list s);
-int print_i(va_list i);
-int print_d(va_list d);
+int get_func(const char s, va_list ap);
+int print_char(va_list);
+int print_string(va_list);
+int print_percent(va_list);
+int print_int(va_list args);
+int print(const char *format, convert_t funcs[], va_list args);
 #endif
