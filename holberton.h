@@ -1,6 +1,6 @@
-#ifndef MAIN_H
+#ifndef _HOLBERTON_H_
 
-#define MAIN_H
+#define _HOLBERTON_H_
 
 #include <stdarg.h>
 
