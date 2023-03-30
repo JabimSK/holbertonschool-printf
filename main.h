@@ -1,28 +1,67 @@
 #ifndef MAIN_H
+
 #define MAIN_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdarg.h>
+
+#include <limits.h>
+
 #include <unistd.h>
+
+#include <stdarg.h>
+
+#include <stdlib.h>
+
+#include <stdio.h>
+
 /**
-* struct format - a struct that holds va_list
-* @let: character
-* @func: pointer to a function
-*
-* Return: 0 success
-*/
-typedef struct format
+
+ * struct convert - convert
+
+ * @sym: char
+
+ * @f: int
+
+ */
+
+struct convert
+
 {
-char *let;
-int (*func)(va_list ap);
-} format_t;
+  
+  char *sym;
+  
+  int (*f)(va_list);
+  
+};
+
+typedef struct convert convert_t;
+
+
+
+
+
+
+
 int _printf(const char *format, ...);
-int cti_function(va_list ap, char c);
-int print_char(va_list ap);
-int print_str(va_list ap);
-int print_int(va_list ap);
-int print_unsigned_int(unsigned int n);
-int _pow_recursion(int x, int y);
+
 int _putchar(char c);
+
+int get_func(const char s, va_list ap);
+
+
+
+
+
+int print_char(va_list);
+
+int print_string(va_list);
+
+int print_percent(va_list);
+
+int print_int(va_list args);
+
+int print(const char *format, convert_t funcs[], va_list args);
+
+
+
+
+
 #endif
