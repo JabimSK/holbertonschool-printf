@@ -51,7 +51,8 @@ return (charCount);
 int cti_function(va_list ap, char c)
 {
 int j;
-format_t f[] = {{"c", print_char},
+format_t f[] = {
+{"c", print_char},
 {"s", print_str},
 {"d", print_int},
 {"i", print_int}
